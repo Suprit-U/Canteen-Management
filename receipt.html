@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+     <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Receipt</title>
+          <style>
+               body {
+                    font-family: 'Arial', sans-serif;
+                    margin: 20px;
+                    text-align: center;
+               }
+
+               h1 {
+                    color: #4CAF50;
+               }
+
+               pre {
+                    white-space: pre-wrap;
+                    font-size: 16px;
+                    text-align: left;
+                    margin: 0 auto;
+                    max-width: 600px;
+               }
+
+               img {
+                    max-width: 100%;
+                    height: auto;
+               }
+
+               #qr-code {
+                    padding: 20px;
+               }
+
+               #qr-code img {
+                    width: 230px;
+                    height: 300px;
+               }
+          </style>
+     </head>
+     <body>
+          <h1>Payment</h1>
+          <pre id="receipt-content"></pre>
+          <h2>Thank you for your purchase!</h2>
+          <h2>Scan QR Code</h2>
+          <div id="qr-code"></div>
+          <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+          <script>
+               const cartItems = JSON.parse(localStorage.getItem("cartItems"));
+               const qrCodeImage = document.createElement("img");
+               qrCodeImage.src = 'qr_code.png';
+               qrCodeImage.alt = 'QR Code Image';
+               document.getElementById("qr-code").appendChild(qrCodeImage);
+          </script>
+     </body>
+</html>
